@@ -21,7 +21,7 @@ class Charger:
         if up:
             self.time_up += delta_time
         
-        self.total_time += delta_time - gap_time
+        self.total_time += (delta_time + gap_time)
         self.uptime = floor((self.time_up / self.total_time) * 100)
 
     
