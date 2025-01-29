@@ -12,12 +12,18 @@ class Charger:
     def get_uptime(self):
         return self.uptime
 
-    def update_uptime(self, times: tuple[int], up: bool) -> int:
+    def update_uptime(self, times: tuple[int], up: bool):
+        start, end = times
 
+        if start > end: 
+            raise ValueError("ERROR")
+        elif end < self.last_time:
+            raise ValueError("ERROR")
+        
         # Capture gaps in time
-        gap_time = times[1] - self.last_time
+        gap_time = end - self.last_time
 
-        delta_time = times[1] - times[0]
+        delta_time = end - start
         if up:
             self.time_up += delta_time
         
