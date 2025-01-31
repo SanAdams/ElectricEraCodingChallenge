@@ -15,6 +15,7 @@ class Charger:
     def update_uptime(self, times: tuple[int], up: bool):
         start, end = times
 
+        # Time Validation
         if start > end: 
             raise ValueError("ERROR")
         elif end < self.last_time:
