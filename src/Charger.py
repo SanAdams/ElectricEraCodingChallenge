@@ -1,13 +1,11 @@
-from math import floor
-
 class Charger:
 
-    def __init__(self, id: int, last_time: int):
+    def __init__(self, id: int):
         self.id = id
         self.time_up = 0
         self.total_time = 0
         self.uptime = 0
-        self.last_time = last_time
+        self.last_time = -1
 
     def get_uptime(self):
         return self.uptime
@@ -29,7 +27,7 @@ class Charger:
             self.time_up += delta_time
         
         self.total_time += (delta_time + gap_time)
-        self.uptime = floor((self.time_up / self.total_time) * 100)
+        self.uptime = (self.time_up / self.total_time) * 100
 
     
 
